@@ -1,26 +1,19 @@
-<template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/user/brian">User</router-link>
-  </div>
-  <router-view></router-view>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+<template lang="pug">
+#main.container
+  Header
+  RouterView
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@/layouts/Header'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-  },
+  components: { Header },
 }
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

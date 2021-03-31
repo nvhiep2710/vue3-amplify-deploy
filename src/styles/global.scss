@@ -1,0 +1,183 @@
+@use 'fonts';
+@use 'pages';
+@use 'buttons';
+
+:root {
+  // Layouts
+  --siteWidth: 960px;
+  --mobileWidth: calc(100% - 64px);
+  --headerHeight: 64px;
+  --footerHeight: 48px;
+  // Typography
+  --fontFamily: 'Oswald', Verdana, Arial, sans-serif;
+  --fontBody: normal normal 300 16px/20px var(--fontFamily);
+  // Colors
+  --dark: #231f20;
+
+  @media (min-width: 1200px) {
+    --siteWidth: 1140px;
+  }
+
+  @media (min-width: 1600px) {
+    --siteWidth: 1320px;
+  }
+}
+
+html,
+body {
+  font: var(--fontBody);
+  color: var(--dark);
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+
+  &:not(:hover) {
+    text-decoration: none;
+  }
+
+  &:hover:not(:disabled) {
+    color: inherit;
+  }
+}
+
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+legend,
+li,
+p,
+pre,
+ul {
+  font-family: var(--fontFamily);
+  margin: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+p {
+  word-break: break-word;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  resize: vertical;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color, inherit);
+}
+
+h1 {
+  font-size: 36px;
+
+  @media (min-width: 960px) {
+    font-size: 48px;
+  }
+}
+
+h2 {
+  font-size: 32px;
+
+  @media (min-width: 960px) {
+    font-size: 40px;
+  }
+}
+
+h3 {
+  font-size: 28px;
+
+  @media (min-width: 960px) {
+    font-size: 36px;
+  }
+}
+
+h4 {
+  font-size: 24px;
+
+  @media (min-width: 960px) {
+    font-size: 32px;
+  }
+}
+
+h5 {
+  font-size: 20px;
+
+  @media (min-width: 960px) {
+    font-size: 28px;
+  }
+}
+
+h6 {
+  font-size: 18px;
+
+  @media (min-width: 960px) {
+    font-size: 20px;
+  }
+}
+
+b,
+strong,
+th {
+  font-weight: 500;
+}
+
+b,
+i,
+mark,
+strong {
+  color: var(--color, inherit);
+}
+
+.red {
+  --color: var(--red);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.relative {
+  position: relative;
+}
+
+.container {
+  width: var(--mobileWidth);
+  max-width: var(--siteWidth);
+  margin: 32px auto;
+}
