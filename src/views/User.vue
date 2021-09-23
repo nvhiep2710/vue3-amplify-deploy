@@ -1,8 +1,10 @@
-<template>
-  <h1>The user is {{ name }}</h1>
+<template lang="pug">
+User
 </template>
+
 <script>
+import User from '@/components/block/User/User'
 export default {
-  props: ['name'],
+  components: { User },
 }
 </script>

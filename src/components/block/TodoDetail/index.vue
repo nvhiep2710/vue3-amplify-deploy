@@ -1,15 +1,16 @@
 <template lang="pug">
-.detail
-  h1 Todo id {{ id }}
+Suspense
+  template(#default)
+    TodoDetail
+  template(#fallback)
+    | suspense loading...
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
-
+import { defineAsyncComponent } from 'vue'
 export default {
-  setup() {
-    const route = useRoute()
-    return { id: route.params.id }
+  components: {
+    TodoDetail: defineAsyncComponent(() => import('./Detail.vue')),
   },
 }
 </script>

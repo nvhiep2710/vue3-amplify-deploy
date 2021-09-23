@@ -1,5 +1,5 @@
 <template lang="pug">
-h1 {{}}
+Teleport(to="#teleport") Hello word from compoent
 </template>
 
 <script>

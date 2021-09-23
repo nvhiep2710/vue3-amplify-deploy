@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { LIMIT_LIST } from '@/assets/constants'
 
 export default {
   namespaced: true,
@@ -11,11 +12,11 @@ export default {
     DONE: s => (s.loading = false),
   },
   actions: {
-    doGetTodoList: async ({ commit }) => {
+    doGetTodoList: async ({ commit }, { page }) => {
       commit('START')
       try {
         const { data } = await axios.get(
-          'https://jsonplaceholder.typicode.com/todos'
+          `https://jsonplaceholder.typicode.com/todos?_page=${page}&_limit=${LIMIT_LIST}`
         )
         commit('SET_DATA', data)
       } catch (e) {

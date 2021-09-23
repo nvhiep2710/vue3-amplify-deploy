@@ -1,6 +1,7 @@
 .button {
   --color: var(--primary);
   --bgColor: white;
+  --borderColor: #ced4da;
 
   font: normal normal 400 20px/28px var(--fontFamily);
   display: inline-block;
@@ -10,11 +11,12 @@
   user-select: none;
   outline: none;
   border-radius: 10px;
-  border: 2px solid var(--bgColor);
+  border: 1px solid var(--borderColor);
   background-color: var(--bgColor);
   color: var(--color);
   padding: 4px 21px;
   box-shadow: 0 0 10px rgba(33, 33, 33, 0.15);
+  cursor: pointer;
 
   // Sizes
   &.small {

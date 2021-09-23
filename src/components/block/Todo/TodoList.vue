@@ -1,20 +1,39 @@
 <template lang="pug">
 .list
-  .loading(v-if="loading") loading...
+  .loading(v-if='loading') loading...
   template(v-else)
-    .item(v-for='item in repositories')
-      RouterLink(:to="{ name: 'TodoDetail', params: { id: item.id }}") {{ `${item.id}. ${item.title}` }}
+    .item(v-for='item in list')
+      TodoItem(:item='item', :key='item.id')
+  template(v-if='list.length > 0')
+    Pagination(
+      :count='count',
+      :page='page',
+      @page-change='changePage'
+    )
 </template>
 <script>
 import todoRepositories from '@/composables/todoRepositories'
+import TodoItem from './TodoItem.vue'
+import Pagination from '@/components/base/Pagination'
 
 export default {
+  name: 'TodoList',
+  components: { TodoItem, Pagination },
   setup() {
-    // const id = context.root.$route.params.id
+    const {
+      count,
+      page,
+      list,
+      loading,
+      getTodoRepositories,
+    } = todoRepositories()
 
-    const { repositories, loading } = todoRepositories()
+    const changePage = async pageNumber => {
+      page.value = pageNumber
+      await getTodoRepositories({ page: pageNumber })
+    }
 
-    return { loading, repositories }
+    return { loading, list, count, page, changePage }
   },
 }
 </script>
@@ -22,5 +41,9 @@ export default {
 .list {
   padding: 20px;
   text-align: left;
+}
+.loading {
+  text-align: center;
+  min-height: 300px;
 }
 </style>

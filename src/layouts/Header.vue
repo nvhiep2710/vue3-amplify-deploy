@@ -1,7 +1,7 @@
 <template lang="pug">
 nav
   RouterLink(to="/") Home
-  RouterLink(to="/todo") Vue3
+  RouterLink(to="/todo") Todo list
   RouterLink(to="/user/brian") User
 </template>
 

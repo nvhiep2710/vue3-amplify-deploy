@@ -1,6 +1,7 @@
-@use 'fonts';
-@use 'pages';
-@use 'buttons';
+@import 'fonts';
+@import 'pages';
+@import 'buttons';
+@import 'input';
 
 :root {
   // Layouts

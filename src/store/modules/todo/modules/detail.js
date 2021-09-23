@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 export default {
+  namespaced: true,
   state: {
     loading: false,
   },
@@ -12,10 +13,10 @@ export default {
     doGetTodoDetail: async ({ commit }, payload) => {
       commit('LOADING')
       try {
-        const result = await axios.get(
+        const { data } = await axios.get(
           `https://jsonplaceholder.typicode.com/todos/${payload}`
         )
-        return result
+        return data
       } catch (e) {
         console.log(e)
       } finally {

@@ -2,10 +2,12 @@
 #main.container
   Header
   RouterView
+  //- HelloWorld
 </template>
 
 <script>
 import Header from '@/layouts/Header'
+// import HelloWorld from '@/components/base/HelloWorld'
 
 export default {
   name: 'App',

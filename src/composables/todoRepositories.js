@@ -1,20 +1,26 @@
-import { onMounted, computed } from 'vue'
+import { onMounted, computed, ref } from 'vue'
 import { useStore } from 'vuex'
+import { TOTAL_LIST } from '@/assets/constants'
 
 export default function todoRepositories() {
   const store = useStore()
+  const page = ref(1)
+  const count = ref(TOTAL_LIST)
 
-  const repositories = computed(() => store.state.todo.list.todos)
+  const list = computed(() => store.state.todo.list.todos)
   const loading = computed(() => store.state.todo.list.loading)
 
-  const getTodoRepositories = async () => {
-    await store.dispatch('todo/list/doGetTodoList')
+  const getTodoRepositories = async ({ page = 1 }) => {
+    await store.dispatch('todo/list/doGetTodoList', { page })
   }
 
-  onMounted(getTodoRepositories)
+  onMounted(getTodoRepositories(page))
 
   return {
-    repositories,
+    count,
+    page,
+    list,
     loading,
+    getTodoRepositories,
   }
 }
